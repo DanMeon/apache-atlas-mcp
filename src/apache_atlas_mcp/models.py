@@ -70,18 +70,14 @@ class AtlasEntityWithExtInfo(_AtlasBase):
     """Entity with extended info including referred entities."""
 
     entity: AtlasEntity
-    referred_entities: dict[str, AtlasEntity] | None = Field(
-        default=None, alias="referredEntities"
-    )
+    referred_entities: dict[str, AtlasEntity] | None = Field(default=None, alias="referredEntities")
 
 
 class AtlasEntitiesWithExtInfo(_AtlasBase):
     """Bulk entity response with extended info."""
 
     entities: list[AtlasEntity] | None = None
-    referred_entities: dict[str, AtlasEntity] | None = Field(
-        default=None, alias="referredEntities"
-    )
+    referred_entities: dict[str, AtlasEntity] | None = Field(default=None, alias="referredEntities")
 
 
 # * Search Models
@@ -193,9 +189,7 @@ class AtlasEntityDef(_AtlasBase):
     description: str | None = None
     type_version: str | None = Field(default=None, alias="typeVersion")
     service_type: str | None = Field(default=None, alias="serviceType")
-    attribute_defs: list[AtlasAttributeDef] | None = Field(
-        default=None, alias="attributeDefs"
-    )
+    attribute_defs: list[AtlasAttributeDef] | None = Field(default=None, alias="attributeDefs")
     super_types: list[str] | None = Field(default=None, alias="superTypes")
     sub_types: list[str] | None = Field(default=None, alias="subTypes")
     relationship_attribute_defs: list[dict] | None = Field(
@@ -210,9 +204,7 @@ class AtlasClassificationDef(_AtlasBase):
     category: str | None = None
     guid: str | None = None
     description: str | None = None
-    attribute_defs: list[AtlasAttributeDef] | None = Field(
-        default=None, alias="attributeDefs"
-    )
+    attribute_defs: list[AtlasAttributeDef] | None = Field(default=None, alias="attributeDefs")
     super_types: list[str] | None = Field(default=None, alias="superTypes")
     entity_types: list[str] | None = Field(default=None, alias="entityTypes")
 
@@ -227,6 +219,4 @@ class AtlasTypesDef(_AtlasBase):
     )
     entity_defs: list[AtlasEntityDef] | None = Field(default=None, alias="entityDefs")
     relationship_defs: list[dict] | None = Field(default=None, alias="relationshipDefs")
-    business_metadata_defs: list[dict] | None = Field(
-        default=None, alias="businessMetadataDefs"
-    )
+    business_metadata_defs: list[dict] | None = Field(default=None, alias="businessMetadataDefs")

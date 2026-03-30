@@ -1,7 +1,6 @@
 """Tests for server module — tool registration and read-only mode."""
 
 
-
 class TestReadOnlyMode:
     def test_default_is_read_only(self, monkeypatch):
         monkeypatch.setenv("ATLAS_USERNAME", "u")
@@ -34,6 +33,7 @@ class TestModels:
             AtlasLineageInfo,
             AtlasSearchResult,
         )
+
         assert AtlasSearchResult is not None
         assert AtlasLineageInfo is not None
 

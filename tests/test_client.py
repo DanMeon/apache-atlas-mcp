@@ -82,9 +82,7 @@ class TestClientRequest:
 
     @pytest.mark.asyncio
     async def test_delete_entity(self, atlas_client: AtlasClient, mock_api):
-        mock_api.delete("/entity/guid/abc-123-def").mock(
-            return_value=httpx.Response(204)
-        )
+        mock_api.delete("/entity/guid/abc-123-def").mock(return_value=httpx.Response(204))
         result = await atlas_client.delete_entity_by_guid("abc-123-def")
         assert result == {}
         await atlas_client.close()
@@ -96,18 +94,14 @@ class TestClientRequest:
 class TestClientErrors:
     @pytest.mark.asyncio
     async def test_401_raises_auth_error(self, atlas_client: AtlasClient, mock_api):
-        mock_api.get("/entity/guid/abc").mock(
-            return_value=httpx.Response(401, text="Unauthorized")
-        )
+        mock_api.get("/entity/guid/abc").mock(return_value=httpx.Response(401, text="Unauthorized"))
         with pytest.raises(ValueError, match="authentication failed"):
             await atlas_client.get_entity_by_guid("abc")
         await atlas_client.close()
 
     @pytest.mark.asyncio
     async def test_403_raises_access_denied(self, atlas_client: AtlasClient, mock_api):
-        mock_api.get("/entity/guid/abc").mock(
-            return_value=httpx.Response(403, text="Forbidden")
-        )
+        mock_api.get("/entity/guid/abc").mock(return_value=httpx.Response(403, text="Forbidden"))
         with pytest.raises(ValueError, match="Access denied"):
             await atlas_client.get_entity_by_guid("abc")
         await atlas_client.close()

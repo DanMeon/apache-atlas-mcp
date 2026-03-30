@@ -43,9 +43,7 @@ async def get_glossary_terms(
         offset: Pagination offset.
     """
     client = get_client(ctx)
-    return await client.get_glossary_terms(
-        glossary_guid=glossary_guid, limit=limit, offset=offset
-    )
+    return await client.get_glossary_terms(glossary_guid=glossary_guid, limit=limit, offset=offset)
 
 
 async def get_glossary_term(ctx: Context, term_guid: str) -> dict:

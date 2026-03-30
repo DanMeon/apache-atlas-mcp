@@ -143,9 +143,7 @@ class AtlasClient:
         params = {"query": query, "limit": limit, "offset": offset}
         return await self._request("GET", "/search/dsl", params=params)
 
-    async def quick_search(
-        self, query: str, type_name: str | None = None, limit: int = 25
-    ) -> dict:
+    async def quick_search(self, query: str, type_name: str | None = None, limit: int = 25) -> dict:
         """GET /v2/search/quick"""
         params: dict = {"query": query, "limit": limit}
         if type_name:
@@ -154,9 +152,7 @@ class AtlasClient:
 
     # * Lineage endpoints
 
-    async def get_lineage(
-        self, guid: str, direction: str = "BOTH", depth: int = 3
-    ) -> dict:
+    async def get_lineage(self, guid: str, direction: str = "BOTH", depth: int = 3) -> dict:
         """GET /v2/lineage/{guid}"""
         params = {"direction": direction, "depth": depth}
         return await self._request("GET", f"/lineage/{_safe(guid)}", params=params)
@@ -200,9 +196,7 @@ class AtlasClient:
 
     # * Glossary endpoints
 
-    async def get_glossaries(
-        self, limit: int = 25, offset: int = 0, sort: str = "ASC"
-    ) -> list:
+    async def get_glossaries(self, limit: int = 25, offset: int = 0, sort: str = "ASC") -> list:
         """GET /v2/glossary"""
         params = {"limit": limit, "offset": offset, "sort": sort}
         return await self._request("GET", "/glossary", params=params)
@@ -216,9 +210,7 @@ class AtlasClient:
     ) -> list:
         """GET /v2/glossary/{glossaryGuid}/terms"""
         params = {"limit": limit, "offset": offset, "sort": sort}
-        return await self._request(
-            "GET", f"/glossary/{_safe(glossary_guid)}/terms", params=params
-        )
+        return await self._request("GET", f"/glossary/{_safe(glossary_guid)}/terms", params=params)
 
     async def get_glossary_term(self, term_guid: str) -> dict:
         """GET /v2/glossary/term/{termGuid}"""

@@ -28,9 +28,7 @@ async def get_lineage(
         depth: How many hops to traverse (default: 3, max: 10).
     """
     client = get_client(ctx)
-    return await client.get_lineage(
-        guid=guid, direction=direction, depth=min(depth, 10)
-    )
+    return await client.get_lineage(guid=guid, direction=direction, depth=min(depth, 10))
 
 
 async def get_lineage_by_attribute(

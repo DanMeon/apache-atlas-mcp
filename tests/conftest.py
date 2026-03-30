@@ -121,7 +121,5 @@ SAMPLE_TYPE_DEF = {
 }
 
 SAMPLE_CLASSIFICATIONS = {
-    "list": [
-        {"typeName": "PII", "entityGuid": "abc-123-def", "propagate": True}
-    ],
+    "list": [{"typeName": "PII", "entityGuid": "abc-123-def", "propagate": True}],
 }
