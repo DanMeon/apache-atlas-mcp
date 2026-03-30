@@ -11,11 +11,19 @@ class TestAtlasSettings:
         monkeypatch.delenv("ATLAS_VERIFY_SSL", raising=False)
         monkeypatch.delenv("ATLAS_TIMEOUT", raising=False)
         monkeypatch.delenv("ATLAS_ALLOW_WRITE", raising=False)
-        settings = AtlasSettings(username="u", password="p", _env_file=None)
-        assert settings.base_url == "http://localhost:21000"
+        settings = AtlasSettings(
+            base_url="http://localhost:21000", username="u", password="p", _env_file=None
+        )
         assert settings.verify_ssl is True
         assert settings.timeout == 30
         assert settings.allow_write is False
+
+    def test_requires_base_url(self, monkeypatch):
+        monkeypatch.delenv("ATLAS_BASE_URL", raising=False)
+        monkeypatch.delenv("ATLAS_USERNAME", raising=False)
+        monkeypatch.delenv("ATLAS_PASSWORD", raising=False)
+        with pytest.raises(Exception):
+            AtlasSettings(username="u", password="p", _env_file=None)
 
     def test_custom_values(self):
         settings = AtlasSettings(

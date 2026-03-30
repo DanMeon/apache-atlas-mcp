@@ -10,7 +10,7 @@ class AtlasSettings(BaseSettings):
 
     model_config = {"env_prefix": "ATLAS_", "env_file": ".env", "env_file_encoding": "utf-8"}
 
-    base_url: str = "http://localhost:21000"
+    base_url: str
     username: str
     password: str
     verify_ssl: bool = True

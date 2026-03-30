@@ -48,7 +48,7 @@ uvx apache-atlas-mcp
 Set environment variables to connect to your Atlas instance:
 
 ```bash
-export ATLAS_BASE_URL=http://localhost:21000
+export ATLAS_BASE_URL=http://your-atlas-server:21000
 export ATLAS_USERNAME=your-username
 export ATLAS_PASSWORD=your-password
 ```
@@ -57,7 +57,7 @@ All configuration options:
 
 | Variable | Default | Description |
 |---|---|---|
-| `ATLAS_BASE_URL` | `http://localhost:21000` | Atlas server URL |
+| `ATLAS_BASE_URL` | *(required)* | Atlas server URL (e.g., `http://localhost:21000`) |
 | `ATLAS_USERNAME` | *(required)* | Authentication username |
 | `ATLAS_PASSWORD` | *(required)* | Authentication password |
 | `ATLAS_VERIFY_SSL` | `true` | Verify SSL certificates |
@@ -75,8 +75,8 @@ Add to your `claude_desktop_config.json`:
       "command": "uvx",
       "args": ["apache-atlas-mcp"],
       "env": {
-        "ATLAS_BASE_URL": "http://localhost:21000",
-        "ATLAS_USERNAME": "admin",
+        "ATLAS_BASE_URL": "http://your-atlas-server:21000",
+        "ATLAS_USERNAME": "your-username",
         "ATLAS_PASSWORD": "your-password"
       }
     }
@@ -93,8 +93,8 @@ To enable write operations:
       "command": "uvx",
       "args": ["apache-atlas-mcp", "--write"],
       "env": {
-        "ATLAS_BASE_URL": "http://localhost:21000",
-        "ATLAS_USERNAME": "admin",
+        "ATLAS_BASE_URL": "http://your-atlas-server:21000",
+        "ATLAS_USERNAME": "your-username",
         "ATLAS_PASSWORD": "your-password"
       }
     }
