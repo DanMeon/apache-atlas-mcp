@@ -30,6 +30,7 @@ CLAUDE.md
 # * MCP
 .serena/
 .claude/
+.mcp.json
 
 # * Copier
 .copier-answers.yml

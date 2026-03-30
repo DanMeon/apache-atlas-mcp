@@ -1,10 +1,14 @@
-# Apache Atlas MCP Server
+<p align="center">
+  <img src="https://raw.githubusercontent.com/DanMeon/apache-atlas-mcp/main/assets/banner.svg" alt="Apache Atlas MCP Server" width="900" />
+</p>
 
-[![CI](https://github.com/DanMeon/apache-atlas-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/DanMeon/apache-atlas-mcp/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+<p align="center">
+  <a href="https://github.com/DanMeon/apache-atlas-mcp/actions/workflows/ci.yml"><img src="https://github.com/DanMeon/apache-atlas-mcp/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python 3.11+" /></a>
+</p>
 
-An [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) server that connects LLM agents to [Apache Atlas](https://atlas.apache.org/) metadata governance platform.
+A community-built [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) server that connects LLM agents to [Apache Atlas](https://atlas.apache.org/) metadata governance platform. Not affiliated with the Apache Software Foundation.
 
 **Read-only by default.** Write operations (create/delete entities, manage classifications) require explicit opt-in via `--write` flag or `ATLAS_ALLOW_WRITE=true`.
 
@@ -19,6 +23,10 @@ This MCP server lets AI agents:
 - **Inspect types** — understand the metadata schema structure
 - **Manage classifications** — apply governance tags like PII, GDPR, Confidential *(write mode)*
 - **Create/delete entities** — modify metadata catalog *(write mode)*
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/DanMeon/apache-atlas-mcp/main/assets/search-demo.png" alt="Search entities demo" width="800" />
+</p>
 
 ## Quick Start
 
