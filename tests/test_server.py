@@ -3,6 +3,7 @@
 
 class TestReadOnlyMode:
     def test_default_is_read_only(self, monkeypatch):
+        monkeypatch.setenv("ATLAS_BASE_URL", "http://localhost:21000")
         monkeypatch.setenv("ATLAS_USERNAME", "u")
         monkeypatch.setenv("ATLAS_PASSWORD", "p")
         monkeypatch.delenv("ATLAS_ALLOW_WRITE", raising=False)
@@ -15,6 +16,7 @@ class TestReadOnlyMode:
         assert server_mod._allow_write is False
 
     def test_write_mode_via_env(self, monkeypatch):
+        monkeypatch.setenv("ATLAS_BASE_URL", "http://localhost:21000")
         monkeypatch.setenv("ATLAS_USERNAME", "u")
         monkeypatch.setenv("ATLAS_PASSWORD", "p")
         monkeypatch.setenv("ATLAS_ALLOW_WRITE", "true")
