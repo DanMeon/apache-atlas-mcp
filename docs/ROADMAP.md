@@ -86,6 +86,16 @@ Hierarchical taxonomy navigation (e.g., Finance > Revenue > ARR).
 - `DELETE /v2/entity/bulk` — batch delete
 - `POST /v2/entity/bulk/classification` — apply classification to multiple entities
 
+## Priority 4 — Performance
+
+### Local Metadata Cache
+
+Cache frequently accessed metadata (entity details, lineage, type definitions) in a local SQLite database to reduce API calls and improve response time. Useful when agents make repeated queries against the same catalog.
+
+- Configurable TTL for cache invalidation
+- Optional — disabled by default to keep the server stateless
+- Community-suggested feature
+
 ## Intentionally Excluded
 
 | Endpoint | Reason |
